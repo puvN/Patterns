@@ -2,19 +2,19 @@
  * Created by puvn on 12.04.16.
  */
 public class Sun {
-    private volatile static Sun sun;
+    private volatile static Sun uniqueSun;
 
     private Sun() {
     }
 
     public static Sun getInstance() {
-        if (sun == null) {
+        if (uniqueSun == null) {
             synchronized (Sun.class) {
-                if (sun == null)
-                    sun = new Sun();
+                if (uniqueSun == null)
+                    uniqueSun = new Sun();
             }
         }
-        return sun;
+        return uniqueSun;
     }
 
 }
